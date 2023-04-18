@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
-
-import '../resources/color_manager.dart';
-import '../resources/style_manager.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../resources/resources.dart';
 
 class Buttons extends StatelessWidget {
   final String buttonName;
   final VoidCallback onTap;
-  const Buttons({Key? key, required this.buttonName, required this.onTap}) : super(key: key);
+  const Buttons({Key? key, required this.buttonName, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(bottom: 15).r,
       child: ElevatedButton(
         onPressed: onTap,
-        child: Text(buttonName, style: getSemiBoldStyle(color: ColorManager.white,fontSize: 20),),
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size.fromHeight(55),
+          minimumSize: const Size.fromHeight(45),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0)
+            borderRadius: BorderRadius.circular(15.0).w,
+          ),
+        ),
+        child: Text(
+          buttonName,
+          style: getSemiBoldStyle(
+            color: ColorManager.white,
+            fontSize: 20.sp,
           ),
         ),
       ),

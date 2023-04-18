@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:healthcare_app/resources/asset_manager.dart';
-import 'package:healthcare_app/resources/color_manager.dart';
-import 'package:healthcare_app/resources/style_manager.dart';
-import 'package:healthcare_app/widgets/settings_tile.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../widgets/widgets.dart';
+import '../resources/resources.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -16,7 +15,9 @@ class SettingScreen extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Text(
               'Settings',
-              style: getBoldStyle(fontSize: 25),
+              style: getBoldStyle(
+                fontSize: 25.sp,
+              ),
             )),
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -27,13 +28,15 @@ class SettingScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 20, left: 18, right: 18),
+                padding: const EdgeInsets.only(top: 20, left: 18, right: 18).r,
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage(ImageAssets.doctor1),
+                    const CircleAvatar(
+                      backgroundImage: AssetImage(
+                        ImageAssets.doctor1,
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -41,27 +44,32 @@ class SettingScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Dr. Doctor Name",
-                          style: getBoldStyle(fontSize: 18),
+                          style: getBoldStyle(
+                            fontSize: 18.sp,
+                          ),
                         ),
                         Text(
                           'Profile',
-                          style: getRegularStyle(color: ColorManager.grey),
+                          style: getRegularStyle(
+                            color: ColorManager.grey,
+                          ),
                         )
                       ],
                     )
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
-                    top: 10, bottom: 10, left: 20, right: 20),
-                child: Divider(),
+              Padding(
+                padding: const EdgeInsets.only(
+                        top: 10, bottom: 10, left: 20, right: 20)
+                    .r,
+                child: const Divider(),
               ),
               SettingTile(
-                  title: 'Profile',
-                  backgroundColor: ColorManager.blue.withOpacity(0.2),
-                  iconColor: ColorManager.blue,
-                  icon: Icons.person_outline,
+                title: 'Profile',
+                backgroundColor: ColorManager.blue.withOpacity(0.2),
+                iconColor: ColorManager.blue,
+                icon: Icons.person_outline,
               ),
               SettingTile(
                 title: 'Notifications',
@@ -89,8 +97,9 @@ class SettingScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 10, bottom: 10, left: 20, right: 20),
-                child: Divider(),
+                        top: 10, bottom: 10, left: 20, right: 20)
+                    .r,
+                child: const Divider(),
               ),
               SettingTile(
                 title: 'Log Out',

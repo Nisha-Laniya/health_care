@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 
 class ColorManager {
   static const Color black =  Colors.black;
@@ -12,4 +11,5 @@ class ColorManager {
   static const Color green = Colors.green;
   static Color yellow1 = Colors.yellow.shade800;
   static Color orange = Colors.orange.shade900;
+  static Color grey1 = Colors.grey.shade600;
 }

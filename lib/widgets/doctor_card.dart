@@ -1,38 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:healthcare_app/data/doctor_data.dart';
-import 'package:healthcare_app/resources/asset_manager.dart';
-import 'package:healthcare_app/resources/color_manager.dart';
-import 'package:healthcare_app/resources/style_manager.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../resources/resources.dart';
 
 class DoctorCard extends StatelessWidget {
   final String image;
   const DoctorCard({Key? key, required this.image}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 7,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20).w),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20).w,
           child: Column(
             children: [
               CircleAvatar(
                 radius: 25,
-                backgroundImage: AssetImage(image),
+                backgroundImage: AssetImage(
+                  image,
+                ),
               ),
-              Spacer(),
-              Text('Dr. Doctor Name',style: getBoldStyle(),),
-              Spacer(),
-              Text('Therapist',style: getMediumStyle(color: ColorManager.grey),),
-              Spacer(),
+              const Spacer(),
+              Text(
+                'Dr. Doctor Name',
+                style: getBoldStyle(),
+              ),
+              const Spacer(),
+              Text(
+                'Therapist',
+                style: getMediumStyle(
+                  color: ColorManager.grey,
+                ),
+              ),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.star,color: ColorManager.yellow,),
-                  Text('4.9'),
+                children: const [
+                  Icon(
+                    Icons.star,
+                    color: ColorManager.yellow,
+                  ),
+                  Text(
+                    '4.9',
+                  ),
                 ],
               )
             ],
