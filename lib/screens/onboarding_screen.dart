@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../screens/screens.dart';
+import 'package:get/get.dart';
 import '../widgets/widgets.dart';
 import '../resources/resources.dart';
 
@@ -24,12 +24,7 @@ class OnBoardingScreen extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const BottomNavigation(),
-                        ),
-                      );
+                      Get.offNamed('/BottomNavigation');
                     },
                     child: Text(
                       'SKIP',
@@ -63,22 +58,12 @@ class OnBoardingScreen extends StatelessWidget {
                 Buttons(
                     buttonName: 'Log In',
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
-                        ),
-                      );
+                      Get.toNamed('/LoginScreen');
                     }),
                 Buttons(
                     buttonName: 'Sign Up',
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(),
-                        ),
-                      );
+                      Get.toNamed('/SignUpScreen');
                     }),
               ],
             ),

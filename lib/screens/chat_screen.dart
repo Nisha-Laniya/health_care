@@ -51,64 +51,72 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: 15,
-        itemBuilder: (context, index) => const ChatDemo(),
+      body: buildChat(),
+      bottomSheet: buildBottomSheet(context),
+    );
+  }
+
+  buildBottomSheet(BuildContext context) {
+    return Container(
+      height: 60.h,
+      decoration: const BoxDecoration(
+        color: ColorManager.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            spreadRadius: 2,
+            blurRadius: 10,
+          ),
+        ],
       ),
-      bottomSheet: Container(
-        height: 60.h,
-        decoration: const BoxDecoration(
-          color: ColorManager.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              spreadRadius: 2,
-              blurRadius: 10,
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0).r,
+            child: const Icon(
+              Icons.add,
+              color: ColorManager.grey,
+              size: 30,
             ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0).r,
-              child: const Icon(
-                Icons.add,
-                color: ColorManager.grey,
-                size: 30,
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0).r,
+            child: const Icon(
+              Icons.emoji_emotions,
+              color: Colors.amber,
+              size: 30,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0).r,
-              child: const Icon(
-                Icons.emoji_emotions,
-                color: Colors.amber,
-                size: 30,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10).r,
-              child: Container(
-                width: MediaQuery.of(context).size.width / 1.7,
-                alignment: Alignment.centerRight,
-                child: const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Type Something',
-                    border: InputBorder.none,
-                  ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10).r,
+            child: Container(
+              width: MediaQuery.of(context).size.width / 1.7,
+              alignment: Alignment.centerRight,
+              child: const TextField(
+                decoration: InputDecoration(
+                  hintText: 'Type Something',
+                  border: InputBorder.none,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0, left: 8).r,
-              child: const Icon(
-                Icons.send,
-                color: ColorManager.deepPurple,
-                size: 30,
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0, left: 8).r,
+            child: const Icon(
+              Icons.send,
+              color: ColorManager.deepPurple,
+              size: 30,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+    );
+  }
+
+   buildChat() {
+    return ListView.builder(
+      itemCount: 15,
+      itemBuilder: (context, index) => const ChatDemo(),
     );
   }
 }
