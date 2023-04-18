@@ -12,6 +12,7 @@ class ScheduleScreen extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: SingleChildScrollView(
+        physics:const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15).r,
           child: Column(
